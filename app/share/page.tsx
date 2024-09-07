@@ -1,4 +1,25 @@
+'use client'
+
+import { getCookie } from "@/utils/cookie"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+
 export default function SharePage() {
+  const [email, setEmail] = useState<string | null>(null)
+  const router = useRouter()
+  useEffect(() => {
+    const emailCookie = getCookie('email')
+    setEmail(emailCookie)
+
+    if (!emailCookie) {
+      router.push("/")
+    }
+  },[router])
+
+  if (!email) {
+    return null;
+  }
+
   return (
     <div className="w-full flex justify-center h-80 my-20">
       <div className="w-1/3 h-full border-2 border-slate-900 p-2 flex justify-center items-center">
