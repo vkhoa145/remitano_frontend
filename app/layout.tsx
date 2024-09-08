@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header/header";
+import { connectWebsocket } from "@/utils/websocket";
+import { useEffect } from "react";
 
 
 export const metadata: Metadata = {

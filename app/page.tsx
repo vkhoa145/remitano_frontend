@@ -1,8 +1,10 @@
-import Header from "@/components/header/header";
+'use client'
+
 import ListVideo from "@/components/video/list_video";
-import { Children } from "react";
+import { connectWebsocket } from "@/utils/websocket";
 
 export default function Home() {
+  connectWebsocket()
   return (
     <div className="">
       <ListVideo/>
