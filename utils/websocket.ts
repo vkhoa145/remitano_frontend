@@ -1,10 +1,8 @@
 
 const server = process.env.NEXT_PUBLIC_WEBSOCKET_URL
-// const ws = new WebSocket(`${server}/cable`)
+const ws = new WebSocket(`${server}/cable`)
 
-export const connectWebsocket = () => {
-  const ws = new WebSocket("ws://localhost:3020/cable")
-  console.log('ws', ws)
+export const connectWebsocket = (onMessage: (data: any) => void) => {
   ws.onopen = () => {
     console.log('connect websocket')
     ws.send(
@@ -26,5 +24,8 @@ export const connectWebsocket = () => {
 
     const message = data.message
     console.log('video', message)
+    onMessage(message)
   }
+
+  return ws;
 }

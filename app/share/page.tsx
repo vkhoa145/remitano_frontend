@@ -1,9 +1,10 @@
 'use client'
 
+import { WebSocketContext } from "@/context/websocket_context"
 import { shareVideos } from "@/services/videoService"
 import { getCookie } from "@/utils/cookie"
 import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 export default function SharePage() {
   const [email, setEmail] = useState<string | null>(null)
