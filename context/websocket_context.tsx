@@ -1,5 +1,6 @@
 'use client'
 
+import { getCookie } from "@/utils/cookie";
 import { connectWebsocket } from "@/utils/websocket";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -14,19 +15,15 @@ export const WebSocketProvider = ({children}: {children: React.ReactNode}) => {
 
   useEffect(() => {
     const ws = connectWebsocket((data) => {
-      if (data.type === 'ping' || !data.message) return;
-      setNotifications((prev) => [...prev, data.message])
+      const user = getCookie('email')
+      console.log('ws', data)
+      console.log('user', user)
+      if (user === data.user) return;
+
+      setNotifications((prev) => [...prev, data].reverse())
     });
+    ws
   },[]);
-
-  // const ws = connectWebsocket((data) => {
-  //   if (data.type === 'ping' || !data.message) return;
-  //   setNotifications((prev) => [...prev, data.message])
-  // });
-
-  // ws
-
-  // connectWebsocket()
 
   return (
     <WebSocketContext.Provider value={{notifications}}>

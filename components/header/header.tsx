@@ -27,8 +27,8 @@ export default function Header() {
     <div className="text-slate-900 h-16">
       <div className="flex justify-between h-full items-center border-b-2 border-slate-900">
         <div className="flex justify-start items-center w-2/4 h-full cursor-pointer">
-          <div className="flex justify-between h-2/3">
-            <FontAwesomeIcon icon={faHouse}/>
+          <div className="flex justify-between">
+            <FontAwesomeIcon icon={faHouse} className="text-3xl"/>
           </div>
           <p className="text-justify text-3xl px-4">FUNNY VIDEOS</p>
         </div>

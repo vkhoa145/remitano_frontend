@@ -15,7 +15,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // connectWebsocket()
   return (
     <html lang="en">
       <body className="bg-slate-200 mx-20">
@@ -24,8 +23,6 @@ export default function RootLayout({
           <NotificationModal/>
           {children}
         </WebSocketProvider>
-        {/* <Header/>
-        {children} */}
       </body>
     </html>
   );
