@@ -1,5 +1,5 @@
 export const setCookie = (accessToken: string, type: string) => {
-  document.cookie = `${type}=${accessToken}; path=/; max-age=${7 * 24 * 60 * 60}`;
+  document.cookie = `${type}=${accessToken}; path=/; max-age=${24 * 60 * 60}`;
 }
 
 export const getCookie = (type: string): string | null => {

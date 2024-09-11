@@ -9,16 +9,13 @@ interface WebSocketContextType {
 }
 
 export const WebSocketContext = createContext<WebSocketContextType | undefined>(undefined);
-
 export const WebSocketProvider = ({children}: {children: React.ReactNode}) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
   useEffect(() => {
     const ws = connectWebsocket((data) => {
       const user = getCookie('email')
-      console.log('ws', data)
-      console.log('user', user)
-      if (user === data.user) return;
+      if (user === null || user === data.user) return;
 
       setNotifications((prev) => [...prev, data].reverse())
     });

@@ -23,9 +23,15 @@ export const connectWebsocket = (onMessage: (data: any) => void) => {
     if (data.type === 'confirm_subscription') return;
 
     const message = data.message
-    console.log('video', message)
     onMessage(message)
   }
 
+  ws.onclose = () => {
+    console.log('closing websocket.....')
+  }
+
+  ws.onerror = (e) => {
+    console.log(e)
+  }
   return ws;
 }
