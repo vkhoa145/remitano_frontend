@@ -12,8 +12,9 @@ export default function ListVideo() {
       try {
         const response = await getVideos();
         setVideos(response.data)
-      } catch (error) {
-        throw new Error(`HTTP error! status: ${error}`);
+      } catch (error: any) {
+        // throw new Error(`HTTP error! status: ${error}`);
+        console.log('error:', error)
       }
     }
     getList()

@@ -8,7 +8,8 @@ export const getVideos = async () => {
   })
 
   if (!res.ok) {
-    throw new Error(`Error: ${res.status}`)
+    // throw new Error(`Error: ${res.status}`)
+    console.log('error res:', res)
   }
 
   return res.json()
@@ -27,7 +28,8 @@ export const shareVideos = async (url: string) => {
 
   console.log('response:', response)
   if (!response.ok) {
-    throw new Error('share video failed');
+    // throw new Error('share video failed');
+    console.log('error res:', response)
   };
 
   const data = await response.json();

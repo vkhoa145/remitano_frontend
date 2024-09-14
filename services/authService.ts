@@ -12,7 +12,8 @@ export const authenticate = async (email: string, password: string) => {
   });
 
   if (!response.ok) {
-    throw new Error('Login failed');
+    // throw new Error('Login failed');
+    console.log('Login failed')
   };
 
   const data = await response.json();

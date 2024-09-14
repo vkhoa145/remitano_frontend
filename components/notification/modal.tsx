@@ -14,7 +14,7 @@ export default function NotificationModal() {
   },[context?.notifications])
 
   const handleClose = (id: string) => {
-    const filterNotifications = notifications.filter((notification) => {
+    const filterNotifications = notifications?.filter((notification) => {
       return notification.id !== id
     })
     setNotifications(filterNotifications)

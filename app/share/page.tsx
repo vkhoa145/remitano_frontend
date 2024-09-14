@@ -1,10 +1,9 @@
 'use client'
-
-import { WebSocketContext } from "@/context/websocket_context"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { shareVideos } from "@/services/videoService"
 import { getCookie } from "@/utils/cookie"
 import { useRouter } from "next/navigation"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function SharePage() {
   const [email, setEmail] = useState<string | null>(null)
@@ -26,9 +25,11 @@ export default function SharePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      await shareVideos(url)
-    } catch (error) {
-      throw new Error(`HTTP error! status: ${error}`);
+      const res = await shareVideos(url)
+      console.log(res)
+    } catch (error: any) {
+      // throw new Error(`HTTP error! status: ${error}`);
+      console.log('error:', error)
     }
   }
 

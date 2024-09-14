@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import { getCookie } from "@/utils/cookie"
 
 export default function Header() {
-  const [isLoggedIn, setIsloggedIn] = useState<Boolean>(false)
+  const [isLoggedIn, setIsloggedIn] = useState<boolean>(false)
   useEffect(() => {
     const token = getCookie('accessToken')
     if (token) {

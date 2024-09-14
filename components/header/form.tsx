@@ -10,6 +10,7 @@ export default function Form({ onLogin }: { onLogin: () => void}) {
     e.preventDefault()
     try {
       const res = await authenticate(email, password);
+      console.log(res)
       onLogin()
     } catch (error) {
       console.log('error', error)
